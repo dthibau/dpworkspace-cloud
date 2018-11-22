@@ -3,6 +3,7 @@ package org.formation;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +26,9 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 public class NotificationServer {
 
 
+	@Autowired
+	MailConfigurationProperties mailConfigurationProperties;
+	
 	protected Logger logger = Logger.getLogger(NotificationServer.class.getName());
 
 	/**
@@ -42,14 +46,13 @@ public class NotificationServer {
 	@Bean
 	public JavaMailSender getJavaMailSender() {
 	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-//	    mailSender.setHost("smtp.plbformation.com");
-//	    mailSender.setPort(587);
+
 	    
-	    mailSender.setHost("localhost");
-	    mailSender.setPort(26);
+	    mailSender.setHost(mailConfigurationProperties.getHost());
+	    mailSender.setPort(mailConfigurationProperties.getPort());
 	     
-	    mailSender.setUsername("stageojen@plbformation.com");
-	    mailSender.setPassword("stageojen");
+	    mailSender.setUsername(mailConfigurationProperties.getUsername());
+	    mailSender.setPassword(mailConfigurationProperties.getPassword());
 	     
 	    Properties props = mailSender.getJavaMailProperties();
 	    props.put("mail.transport.protocol", "smtp");
