@@ -10,4 +10,3 @@ insert into MEMBER (EMAIL, PASSWORD, NOM, PRENOM, AGE) values ('tete@tonton.com'
 
 
 
-

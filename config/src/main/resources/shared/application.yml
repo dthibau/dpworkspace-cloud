@@ -18,6 +18,7 @@ management:
         - refresh
         - mappings
         - hystrix.stream
+        - routes
   endpoint:
     health:
       show-details: always
