@@ -42,6 +42,14 @@ public class MembersController {
 		logger.info("MemberRepository says system has " + memberRepository.countMembers() + " Members");
 	}
 
+	
+	@RequestMapping("/Members")
+	public List<Member> fetchAll() {
+
+		logger.info("Members-service fetchAll invoked: ");
+		return  memberRepository.findAll();
+		
+	}
 	/**
 	 * Fetch an Member with the specified Member number.
 	 * 

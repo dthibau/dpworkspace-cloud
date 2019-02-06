@@ -2,6 +2,7 @@ package org.formation.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
@@ -10,7 +11,7 @@ import org.springframework.data.repository.Repository;
  * 
  * @author Paul Chapman
  */
-public interface MemberRepository extends Repository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 	/**
 	 * Find an Member with the specified Member number.
 	 *
