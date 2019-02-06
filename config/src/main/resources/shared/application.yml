@@ -17,6 +17,7 @@ management:
         - httptrace
         - refresh
         - mappings
+        - hystrix.stream
   endpoint:
     health:
       show-details: always
