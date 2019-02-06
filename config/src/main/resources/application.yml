@@ -9,3 +9,10 @@ spring:
           search-locations: classpath:/shared
   profiles:
     active: native
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - mappings
