@@ -6,3 +6,9 @@ spring:
     config:
       uri: http://config:8888
       fail-fast: true
+      
+      
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
