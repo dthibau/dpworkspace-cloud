@@ -24,11 +24,24 @@ zuul:
         path: /members-service/**
 #        serviceId: members
         stripPrefix: true
-        sensitiveHeaders: false
+        sensitiveHeaders: 
 
     documents-service:
         path: /documents-service/**
 #        serviceId: documents
         stripPrefix: true
-#        sensitiveHeaders:
+        sensitiveHeaders:
+ 
+    oauth-server:
+        path: /oauth-server/**
+#        serviceId: documents
+        stripPrefix: true
+        sensitiveHeaders:
+
+    resource-server:
+        path: /resource-server/**
+#        serviceId: documents
+        stripPrefix: true
+        sensitiveHeaders: 
+
  
