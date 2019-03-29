@@ -1,10 +1,15 @@
-version: '2'
+version: '2.1'
 services:
   config:
     build: ./config/
     restart: always
     networks:
      - back
+    healthcheck:
+        test: curl -f http://localhost:8888/annuaire/default && echo 'cool, it works'
+        interval: 10s
+        timeout: 10s
+        retries: 5
     ports:
      - "8888:8888"
   annuaire:
@@ -15,21 +20,24 @@ services:
      - "1111:1111"
     restart: always
     depends_on:
-      - config
+      config: 
+        condition: service_healthy
   document-service:
     build: ./document-service/
     networks:
      - back
     restart: always
     depends_on:
-      - config
+      config: 
+        condition: service_healthy
   notification-service:
     build: ./notification-service/
     networks:
      - back
     restart: always
     depends_on:
-      - config
+      config: 
+        condition: service_healthy
   members-service:
     build: ./members-service/
     networks:
@@ -43,7 +51,8 @@ services:
       - back
     restart: always
     depends_on:
-      - config
+      config: 
+        condition: service_healthy
     ports:
      - "5555:5555"
   proxy:
@@ -55,11 +64,18 @@ services:
       - 8081:8081
     restart: always
     depends_on:
-      - config
+      config: 
+        condition: service_healthy
   fake-smtp:
     build: ./fake-smtp/
     networks:
+      - back
+  angular:
+    build: ./angular
+    networks:
       - front
+    ports:
+      - 81:80
 
 
 networks:

@@ -14,6 +14,6 @@ public class GreetingsListener {
 	
     @StreamListener(GreetingsStream.INPUT)
     public void handleGreetings(@Payload Greetings greetings) {
-        log.info("Received greetings: {}" + greetings);
+        log.info("Received greetings: " + greetings);
     }
 }

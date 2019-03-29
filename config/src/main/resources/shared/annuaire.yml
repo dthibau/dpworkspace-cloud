@@ -6,7 +6,7 @@ eureka:
     fetch-registry: false
     register-with-eureka: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://annuaire:1111/eureka/
 ---
 spring:
   profiles: peer1
