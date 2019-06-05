@@ -9,9 +9,9 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ProxyService {
- private proxyServer = 'http://localhost:8081'
+ private proxyServer = 'http://proxy:8081'
  private authenticateUrl =  '/members-service/authenticate'; 
- private documentsUrl = '/documents-service/Documents/owner/';  
+ private documentsUrl = '/documents-service/documents/owner/';  
 
  membre:Membre;
 

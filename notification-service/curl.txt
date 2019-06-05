@@ -1,5 +1,5 @@
 
-#Register
+#Send email
 curl -XPOST -H "Content-Type: application/json" 'http://localhost:9090/sendSimple' --data-binary "@email.json" | python -m json.tool
 
 
